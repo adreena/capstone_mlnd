@@ -69,12 +69,15 @@ The F score, commonly used in information retrieval, measures accuracy using the
 F2_score weights recall higher than precision and it would the main evaluation metric for this problem set, meaning that how many of the deforestations are actually detected by the model.
 
 ### Project Design
-_(approx. 1 page)_
 
-* Step1: Downloading & preprocessing the dataset, as an initial step we need to know how many labels are currently used in the dataset as tags and associate image paths to tag ids, resizing and down-scaling the images might also be a step to consider to reduce training time
-* Step2: Breaking dataset into train/validation set 
-* Step3: Doing data exploration on tags and drawing barcharts to gain more insight about the data and tags
-* Step4: Trying out different CNN architectures on the dataset as well as transfer learning from VGG16, VGG19, Resnet50 and Inception
-* Step5: For building multilabel models, I'll train one model for each tag and that model is trained to distinguish between that tag and all the other tags and merge results together per image as the final output prediction.
-* Optional Step: I'd like to observe how clustering would work on images, as an experiemtn I'd create feature vectors of color histograms, spatial features and tags for each image and apply an unsupervised algorithm to find out about possible clusters and groups of images and tags.
+* Platform : Python 3.6
+* Libraries : Keras, Tensorflow, Scikit-learn, Opencv
+* Algorithm :
+   * Step1: Downloading & preprocessing the dataset, as an initial step we need to know how many labels are currently used in the dataset as tags and associate image paths to tag ids, resizing and down-scaling the images might also be a step to consider to reduce training time
+   * Step2: Breaking dataset into train/validation set 
+   * Step3: Doing data exploration on tags and drawing barcharts to gain more insight about the data and tags
+   * Step4: Trying out different CNN architectures on the dataset as well as transfer learning from VGG16, VGG19, Resnet50 and Inception
+   * Step5: For building multilabel models, I'll train one model for each tag and that model is trained to distinguish between that tag and all the other tags and merge results together per image as the final output prediction.
+   * Optional Step: I'd like to observe how clustering would work on images, as an experiemtn I'd create feature vectors of color histograms, spatial features and tags for each image and apply an unsupervised algorithm to find out about possible clusters and groups of images and tags.
 
+<img src="./assets/process.jpg" width="550" height="300"/> 
