@@ -52,12 +52,10 @@ Each image will have one and potentially more than one atmospheric label and zer
 
 ### Solution Statement
 
-* Step1: Downloading & preprocessing the dataset, as an initial step we need to know how many labels are currently used in the dataset as tags and associate image paths to tag ids, resizing and down-scaling the images might also be a step to consider to reduce training time
-* Step2: Breaking dataset into train/validation set 
-* Step3: Doing data exploration on tags and drawing barcharts to gain more insight about the data and tags
-* Step4: Trying out different CNN architectures on the dataset as well as transfer learning from VGG16, VGG19, Resnet50 and Inception
-* Step5: For building multilabel models, I'll train one model for each tag and that model is trained to distinguish between that tag and all the other tags and merge results together per image as the final output prediction.
-* Optional Step: I'd like to observe how clustering would work on images, as an experiemtn I'd create feature vectors of color histograms, spatial features and tags for each image and apply an unsupervised algorithm to find out about possible clusters and groups of images and tags.
+The collected data for this project is moslty images which brings up 2 main approaches to attack the problem:
+ * 1- Creating feature vectors based on image data for each input and use classical Machine Learning algorithms such as SVM to mine patterns and make predictions 
+ * 2- Developing Convolutional Neural Network and take a Deep Learning approach 
+Becuase there are multiple labels per image, solution requires training individual models per tag (label) and merge results in the final step based on confidence levels and setting thresholds.
 
 ### Benchmark Model
 _(approximately 1-2 paragraphs)_
@@ -72,6 +70,12 @@ In this section, propose at least one evaluation metric that can be used to quan
 ### Project Design
 _(approx. 1 page)_
 
+* Step1: Downloading & preprocessing the dataset, as an initial step we need to know how many labels are currently used in the dataset as tags and associate image paths to tag ids, resizing and down-scaling the images might also be a step to consider to reduce training time
+* Step2: Breaking dataset into train/validation set 
+* Step3: Doing data exploration on tags and drawing barcharts to gain more insight about the data and tags
+* Step4: Trying out different CNN architectures on the dataset as well as transfer learning from VGG16, VGG19, Resnet50 and Inception
+* Step5: For building multilabel models, I'll train one model for each tag and that model is trained to distinguish between that tag and all the other tags and merge results together per image as the final output prediction.
+* Optional Step: I'd like to observe how clustering would work on images, as an experiemtn I'd create feature vectors of color histograms, spatial features and tags for each image and apply an unsupervised algorithm to find out about possible clusters and groups of images and tags.
 In this final section, summarize a theoretical workflow for approaching a solution given the problem. Provide thorough discussion for what strategies you may consider employing, what analysis of the data might be required before being used, or which algorithms will be considered for your implementation. The workflow and discussion that you provide should align with the qualities of the previous sections. Additionally, you are encouraged to include small visualizations, pseudocode, or diagrams to aid in describing the project design, but it is not required. The discussion should clearly outline your intended workflow of the capstone project.
 
 -----------
