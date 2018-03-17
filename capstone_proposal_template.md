@@ -51,32 +51,30 @@ Each image will have one and potentially more than one atmospheric label and zer
 
 ### Solution Statement
 
-The collected data for this project is moslty images which brings up 2 main approaches to attack the problem:
- * 1- Creating feature vectors based on image data for each input and use classical Machine Learning algorithms such as SVM to mine patterns and make predictions 
+This is a multi-label classification problem and the collected data for this project is mostly images which brings up 2 main approaches to attack the problem:
+ *	1- Creating feature vectors based on image data for each input and use classical Machine Learning algorithms such as SVM to mine patterns and make predictions 
  * 2- Developing Convolutional Neural Network and take a Deep Learning approach or Transfer Learning
-Becuase there are multiple labels per image, solution requires training individual models per tag (label) and merge results in the final step based on confidence levels and setting thresholds.
+For classifying this problem using Machine Learning, solution requires training individual models per tag (label) and merge results in the final step based on confidence levels and setting thresholds, but CNN model can be trained to predict multiple classes.
 
 ### Benchmark Model
 
-Highest scores on [kaggle leaderboard](https://www.kaggle.com/c/planet-understanding-the-amazon-from-space/leaderboard) submissions are approximately 93%. Some of the best submissions have used transfer learning (ex. VGG16) but the rest of the submissions are private so their approaches are not publicly shared. Scores presented in leaderboard are mewn(F2_scores) and they are calculated with approximately 34% of the test data. The mean (F2_score) is formed by averaging the individual F2_scores for each row in the test set.
+For benchmark models, I'll be training a simple CNN along with a simple ML model such as logistic regression on the training set to get baseline measurements on accuracy, precision and recall and provide the details of each benchmark in a table.
+As a supporting document I will be comparing my results with highest scores on [kaggle leaderboard](https://www.kaggle.com/c/planet-understanding-the-amazon-from-space/leaderboard). Kaggle submissions scores are approximately 93% and some of the best submissions have used transfer learning (ex. VGG16) but the rest of the submissions are private so their approaches are not publicly shared. Scores presented in leaderboard are mean(F2_scores) and they are calculated with approximately 34% of the test data. The mean (F2_score) is the average of individual F2_scores for each row in the test set.
 
-A good CNN should be able to reach a reasonable score above 90%, however there might be obstacles on the road to achieve this score such as limited access to AWS EC2 GPU instances and computational costs to run models with sufficient number of epochs and beat these scores.
+A good model should be able to reach a reasonable F2_score above 90% and outperform the naive models, however there might be obstacles on the road to achieve this score such as limited access to AWS EC2 GPU instances and computational costs to run models with sufficient number of epochs and beat these scores.
 
 ### Evaluation Metrics
 
-The F score, commonly used in information retrieval, measures accuracy using the precision p and recall r. Precision is the ratio of true positives (tp) to all predicted positives (tp + fp). Recall is the ratio of true positives to all actual positives (tp + fn). 
-F2_score weights recall higher than precision and it would the main evaluation metric for this problem set, meaning that how many of the deforestations are actually detected by the model.
+The F score, commonly used in information retrieval, measures accuracy using the precision p and recall r. Precision is the ratio of true positives (TP) to all predicted positives (TP + FP). Recall is the ratio of true positives to all actual positives (TP + FN).  F2_score weights recall higher than precision and it would the main evaluation metric for this problem set, meaning that how many of the deforestations are actually detected by the model.  
 
 ### Project Design
 
 * Platform : Python 3.6
 * Libraries : Keras, Tensorflow, Scikit-learn, Opencv
 * Algorithm :
-   * Step1: Downloading & preprocessing the dataset, as an initial step we need to know how many labels are currently used in the dataset as tags and associate image paths to tag ids, resizing and down-scaling the images might also be a step to consider to reduce training time
-   * Step2: Breaking dataset into train/validation set 
-   * Step3: Doing data exploration on tags and drawing barcharts to gain more insight about the data and tags
-   * Step4: Trying out different CNN architectures on the dataset as well as transfer learning from VGG16, VGG19, Resnet50 and Inception
-   * Step5: For building multilabel models, I'll train one model for each tag and that model is trained to distinguish between that tag and all the other tags and merge results together per image as the final output prediction.
-   * Optional Step: I'd like to observe how clustering would work on images, as an experiemtn I'd create feature vectors of color histograms, spatial features and tags for each image and apply an unsupervised algorithm to find out about possible clusters and groups of images and tags.
+ *	Step1: Downloading & pre-processing the dataset, as an initial step we need to know how many labels are currently used in the dataset as tags and associate image paths to tag ids, resizing and down-scaling the images might also be a step to consider to reduce training time    
+ *	Step2: Breaking dataset into train/validation set
+ *	Step3: Doing data exploration on tags and drawing bar charts to gain more insight about the data and tags    
+ *	Step4: Trying out different CNN architectures on the dataset as well as transfer learning from VGG16, VGG19, Resnet50 and Inception   
+ *	Step5: For building multilabel models using Machine Learning, I'll train one model for each tag and that model is trained to distinguish between that tag and all the other tags and merge results together per image as the final output prediction. But for CNN approach I’ll train a multilabel classifier on the images. 
 
-<img src="./assets/process.jpg" width="100%" height="400"/> 
