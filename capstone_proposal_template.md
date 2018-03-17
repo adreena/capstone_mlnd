@@ -80,4 +80,4 @@ F2_score weights recall higher than precision and it would the main evaluation m
    * Step5: For building multilabel models, I'll train one model for each tag and that model is trained to distinguish between that tag and all the other tags and merge results together per image as the final output prediction.
    * Optional Step: I'd like to observe how clustering would work on images, as an experiemtn I'd create feature vectors of color histograms, spatial features and tags for each image and apply an unsupervised algorithm to find out about possible clusters and groups of images and tags.
 
-             <img src="./assets/process.jpg" width="650" height="400"/> 
+<img src="./assets/process.jpg" width="100%" height="400"/> 
