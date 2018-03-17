@@ -7,7 +7,7 @@ March 15th, 2018
 
 Deforestation is clearing Earth's forests on a massive scale, often resulting in damage to the quality of the land and affects climate change. According to [NationalGeography](https://www.nationalgeographic.com/environment/global-warming/deforestation/) 80% of Earth's land animals and plants live in forests, and many cannot survive the deforestation. Forests still cover about 30 percent of the world’s land area, but swaths half the size of England are lost each year. The world’s rain forests could completely vanish in a hundred years at the current rate of deforestation.
 
-<img src="./assets/Deforestation.jpg" width="650" height="400"/> 
+<img src="./assets/Deforestation.jpg" width="100%" height="400"/> 
 
 [Image resource](http://www.borgenmagazine.com/deforestation-new-threat-global-food-security/)
 
@@ -80,4 +80,4 @@ F2_score weights recall higher than precision and it would the main evaluation m
    * Step5: For building multilabel models, I'll train one model for each tag and that model is trained to distinguish between that tag and all the other tags and merge results together per image as the final output prediction.
    * Optional Step: I'd like to observe how clustering would work on images, as an experiemtn I'd create feature vectors of color histograms, spatial features and tags for each image and apply an unsupervised algorithm to find out about possible clusters and groups of images and tags.
 
-<img src="./assets/process.jpg" width="650" height="400"/> 
+             <img src="./assets/process.jpg" width="650" height="400"/> 
